@@ -1,0 +1,11 @@
+.item {
+    color: yellow;
+}
+.itemActive {
+
+    font-weight: bold;
+}
+
+img {
+    width: 50px;
+}
