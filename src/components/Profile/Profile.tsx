@@ -6,7 +6,7 @@ import MyPosts from "./MyPosts/MyPosts";
 function Profile() {
 
     return (
-        <div className={classes.profile}>
+        <div>
             <div className={classes.bg}>
                 <img
                     src='https://catherineasquithgallery.com/uploads/posts/2021-03/1614855297_173-p-foni-na-yutub-206.jpg'></img>

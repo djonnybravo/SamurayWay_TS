@@ -1,14 +1,18 @@
 .app-wrapper {
-  width: 1250px;
-  display: grid;
-  margin: 0 auto;
+    width: 1250px;
+    display: grid;
+    margin: 0 auto;
 
-  grid-template-areas:
+    grid-template-areas:
   "header header header"
-  "n profile content";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
+  "n c c";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
 }
 
 
+.app-wrapper-content {
+  grid-area: c;
+  background-color: lightblue;
+}

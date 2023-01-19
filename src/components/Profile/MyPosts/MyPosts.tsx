@@ -1,13 +1,16 @@
 import React from "react";
-import classes from './MyPosts.module.css'
+import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 function MyPosts () {
     return (
-        <div className={classes.posts}>
+        <div className={s.posts}>
 
-            <Post/> <Post/> <Post/> <Post/>
-
+            <Post message={'Hey, hello, how are you'} likes={10}/>
+            <Post message={' hello, i am good, and you'} likes={10}/>
+            <Post message={'I am good too, thanks'} likes={10}/>
+            <Post message={'This is great'} likes={10}/>
+            <Post message={'HELLO DASHA'} likes={100000}/>
         </div>
     )
 }
