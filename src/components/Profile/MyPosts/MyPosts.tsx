@@ -1,17 +1,21 @@
 import React from "react";
 import styles from './MyPosts.module.css'
-import Post from "./Post/Post";
+import Post, {PostType} from "./Post/Post";
 
-function MyPosts() {
 
-    let posts = [
-        {id: 1, message: "Hey, hello, how are you", likes: 10},
-        {id: 2, message: "hello, i am good, and you", likes: 10},
-        {id: 3, message: "I am good too, thanks", likes: 10},
-        {id: 4, message: "This is great", likes: 10},
-           ]
+export type PostsType = {
+    posts: Array<PostType>
+}
 
-    let postlist = posts.map((p) =>  <Post id={p.id} message={p.message} likes={p.likes}/> )
+
+function MyPosts(props: PostsType) {
+
+
+
+
+
+
+    let postListItems = props.posts.map((p) =>  <Post id={p.id} message={p.message} likes={p.likes}/> )
 
     return (
         <div className={styles.postsBlock}>
@@ -23,7 +27,7 @@ function MyPosts() {
                 </div>
             </div>
             <div className={styles.posts}>
-                {postlist}
+                {postListItems}
             </div>
         </div>
     )

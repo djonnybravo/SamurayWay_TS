@@ -1,0 +1,15 @@
+
+
+.dialogs_items {
+    padding: 20px;
+}
+
+.dialog {
+    color: white;
+}
+
+.dialog.active{
+
+    color: gold;
+
+}
