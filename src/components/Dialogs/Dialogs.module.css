@@ -1,4 +1,26 @@
-.profile{
-    grid-area: profile;
-    background-color: lightblue;
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogs_items {
+    padding: 20px;
+}
+
+.dialog {
+    color: white;
+}
+
+.dialog.active{
+
+    color: gold;
+
+}
+
+.messages {
+    padding: 20px;
+}
+
+.message {
+ color: white;
 }
