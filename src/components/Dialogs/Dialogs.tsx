@@ -7,9 +7,15 @@ import {DialogsPageType} from "../../redux/state";
 
 const Dialogs: React.FC<DialogsPageType> = (props) => {
 
-    let dialogsElements = props.dialogs.map( (d) => <Dialog id={d.id} name={d.name}/>)
+    let dialogsElements = props.dialogs.map((d) => <Dialog id={d.id} name={d.name}/>)
+    let messageElements = props.messages.map((message) => <Message id={message.id} message={message.message}/>)
 
-    let messageElements = props.messages.map( (message) =>  <Message id={message.id} message={message.message}/> )
+    let newMessageElement = React.createRef<HTMLTextAreaElement>()
+
+    const sendMessageButton = () => {
+        let newMessageText = newMessageElement.current?.value
+    }
+
 
     return (
         <div className={styles.dialogs}>
@@ -17,7 +23,11 @@ const Dialogs: React.FC<DialogsPageType> = (props) => {
                 {dialogsElements}
             </div>
             <div className={styles.messages}>
-                {messageElements}
+                <div>{messageElements}</div>
+                <div>
+                    <textarea  ref={newMessageElement}></textarea>
+                    <button onClick={sendMessageButton}></button>
+                </div>
             </div>
         </div>
     );

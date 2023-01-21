@@ -1,17 +1,23 @@
 import React from "react";
 import styles from './MyPosts.module.css'
-import Post, {PostType} from "./Post/Post";
-
-
-export type PostsType = {
-    posts: Array<PostType>
-}
-
-
-function MyPosts(props: PostsType) {
+import {PostsType, ProfilePageType} from "../../../redux/state";
+import Post from "./Post/Post";
 
 
 
+
+
+
+function MyPosts(props: ProfilePageType) {
+
+    let newPostlement = React.createRef<HTMLTextAreaElement>()
+
+    const addPost = () => {
+
+        let text = newPostlement.current?.value
+
+
+    }
 
 
 
@@ -21,9 +27,9 @@ function MyPosts(props: PostsType) {
         <div className={styles.postsBlock}>
             <h3>My Posts</h3>
             <div>
-                <div><textarea></textarea></div>
+                <div><textarea ref={newPostlement}> </textarea></div>
                 <div>
-                    <button>Add Post</button>
+                    <button onClick={addPost} >Add Post</button>
                 </div>
             </div>
             <div className={styles.posts}>
