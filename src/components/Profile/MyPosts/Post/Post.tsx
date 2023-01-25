@@ -19,3 +19,5 @@ function Post(props:PostType) {
 }
 
 export default Post
+
+

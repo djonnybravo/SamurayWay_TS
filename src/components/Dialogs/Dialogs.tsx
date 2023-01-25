@@ -2,10 +2,17 @@ import React from 'react';
 import styles from './Dialogs.module.css'
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import {DialogsPageType} from "../../redux/state";
+import {DialogsPageType, DialogType, MessageType} from "../../redux/state";
 
 
-const Dialogs: React.FC<DialogsPageType> = (props) => {
+export type DialogsPropsType = {
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
+    addMessage: (messageText: string) => void
+}
+
+
+const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
     let dialogsElements = props.dialogs.map((d) => <Dialog id={d.id} name={d.name}/>)
     let messageElements = props.messages.map((message) => <Message id={message.id} message={message.message}/>)
@@ -13,7 +20,10 @@ const Dialogs: React.FC<DialogsPageType> = (props) => {
     let newMessageElement = React.createRef<HTMLTextAreaElement>()
 
     const sendMessageButton = () => {
-        let newMessageText = newMessageElement.current?.value
+       if (newMessageElement.current) {
+           props.addMessage(newMessageElement.current.value)
+       }
+
     }
 
 
@@ -26,7 +36,7 @@ const Dialogs: React.FC<DialogsPageType> = (props) => {
                 <div>{messageElements}</div>
                 <div>
                     <textarea  ref={newMessageElement}></textarea>
-                    <button onClick={sendMessageButton}></button>
+                    <button onClick={sendMessageButton}>Send</button>
                 </div>
             </div>
         </div>
